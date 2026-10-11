@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: M; src: url(montserrat-latin.woff2); font-weight: 400 800; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #001226; font-family: M, sans-serif; color: #fff; }
+#fondo { position: absolute; left: 0; top: 0; width: 1296px; height: 2304px; }
+.brand { position: absolute; top: 92px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 18px; font-weight: 700; font-size: 40px; letter-spacing: 2px; }
+.brand b { color: #3D9BFF; font-weight: 700; }
+.tag { position: absolute; top: 170px; left: 50%; transform: translateX(-50%); font-weight: 800; font-size: 30px; letter-spacing: 5px; color: #BFE3FF; background: rgba(0,123,255,.22); border: 2px solid rgba(61,155,255,.6); border-radius: 999px; padding: 12px 30px; white-space: nowrap; }
+#robot { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.subs { position: absolute; left: 70px; right: 70px; top: 1540px; text-align: center; font-weight: 800; font-size: 68px; line-height: 1.25; text-shadow: 0 6px 24px rgba(0,0,0,.65); }
+.subs span { display: inline-block; padding: 2px 10px; margin: 4px -4px; border-radius: 18px; }
+.subs span.on { background: #007BFF; box-shadow: 0 10px 30px rgba(0,123,255,.55); }
+</style>
+</head>
+<body>
+<img id="fondo" src="fondo.png" alt="">
+<div class="brand">
+  <svg width="64" height="64" viewBox="0 0 36 36"><polygon points="18,2 34,10 34,26 18,34 2,26 2,10" fill="#001F3F" stroke="#1C3D63"/><polygon points="18,8 28,13 28,23 18,28 8,23 8,13" fill="#007BFF"/><polygon points="18,14 24,17 24,21 18,24 12,21 12,17" fill="#fff"/></svg>
+  VEXTRUM <b>LABS</b>
+</div>
+<div class="tag">DÍA 1 · AUTOMATIZACIÓN</div>
+
+<svg id="robot" viewBox="0 0 1080 1920">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sombra" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#000814" flood-opacity=".6"/></filter>
+    <linearGradient id="casco" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F9FF"/><stop offset="1" stop-color="#C9DDF2"/></linearGradient>
+    <linearGradient id="cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E3A6B"/><stop offset="1" stop-color="#06213F"/></linearGradient>
+    <radialGradient id="mano" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#E9F4FF"/><stop offset="1" stop-color="#9DC3E8"/></radialGradient>
+    <radialGradient id="piso" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3D9BFF" stop-opacity=".55"/><stop offset="1" stop-color="#3D9BFF" stop-opacity="0"/></radialGradient>
+  </defs>
+
+  <ellipse cx="540" cy="1500" rx="330" ry="60" fill="url(#piso)"/>
+
+  <!-- Cuerpo -->
+  <g id="cuerpoG" filter="url(#sombra)">
+    <path d="M330 1170 Q330 1120 380 1115 L700 1115 Q750 1120 750 1170 L790 1440 Q795 1490 745 1490 L335 1490 Q285 1490 290 1440 Z" fill="url(#cuerpo)" stroke="#2A6CB0" stroke-width="5"/>
+    <g transform="translate(540 1290) scale(4.2) translate(-18 -18)">
+      <polygon points="18,2 34,10 34,26 18,34 2,26 2,10" fill="#001F3F" stroke="#3D9BFF" stroke-width=".8"/>
+      <polygon points="18,8 28,13 28,23 18,28 8,23 8,13" fill="#007BFF"/>
+      <polygon id="nucleo" points="18,14 24,17 24,21 18,24 12,21 12,17" fill="#fff"/>
+    </g>
+  </g>
+
+  <!-- Manos flotantes -->
+  <g id="manoI" filter="url(#sombra)"><ellipse cx="0" cy="0" rx="62" ry="70" fill="url(#mano)" stroke="#6FA6DB" stroke-width="4"/><path d="M-18 -40 Q-10 -60 6 -58" stroke="#6FA6DB" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+  <g id="manoD" filter="url(#sombra)"><ellipse cx="0" cy="0" rx="62" ry="70" fill="url(#mano)" stroke="#6FA6DB" stroke-width="4"/><path d="M18 -40 Q10 -60 -6 -58" stroke="#6FA6DB" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+
+  <!-- Cabeza -->
+  <g id="cabeza">
+    <rect x="510" y="1040" width="60" height="90" rx="14" fill="#0A2A4D"/>
+    <line x1="540" y1="520" x2="540" y2="440" stroke="#9DC3E8" stroke-width="12" stroke-linecap="round"/>
+    <circle id="antena" cx="540" cy="425" r="28" fill="#3D9BFF" filter="url(#glow)"/>
+    <rect x="198" y="700" width="70" height="170" rx="30" fill="#2A6CB0"/>
+    <rect x="812" y="700" width="70" height="170" rx="30" fill="#2A6CB0"/>
+    <path d="M540 505 Q556 505 572 513 L818 640 Q842 652 842 680 L842 900 Q842 928 818 940 L572 1067 Q556 1075 540 1075 Q524 1075 508 1067 L262 940 Q238 928 238 900 L238 680 Q238 652 262 640 L508 513 Q524 505 540 505 Z"
+          fill="url(#casco)" stroke="#8FB6DD" stroke-width="6" filter="url(#sombra)"/>
+    <rect x="300" y="620" width="480" height="370" rx="110" fill="#001A33" stroke="#123E6B" stroke-width="6"/>
+    <rect x="320" y="636" width="440" height="60" rx="30" fill="#FFFFFF" opacity=".06"/>
+    <!-- Cara en pantalla -->
+    <g id="cara" filter="url(#glow)" fill="#7FDBFF" stroke="#7FDBFF">
+      <g id="ojos">
+        <rect id="ojoI" x="-26" y="-40" width="52" height="80" rx="26" stroke="none"/>
+        <rect id="ojoD" x="-26" y="-40" width="52" height="80" rx="26" stroke="none"/>
+      </g>
+      <g id="boca" transform="translate(540 905)" stroke-linecap="round" stroke-linejoin="round">
+        <path data-m="X" d="M-62 -6 Q0 22 62 -6" fill="none" stroke-width="13"/>
+        <path data-m="A" d="M-66 0 Q0 8 66 0" fill="none" stroke-width="13"/>
+        <g data-m="B"><rect x="-78" y="-20" width="156" height="40" rx="20" fill="#0A3D66" stroke-width="10"/><line x1="-58" y1="0" x2="58" y2="0" stroke-width="6"/></g>
+        <rect data-m="C" x="-70" y="-34" width="140" height="68" rx="34" fill="#0A3D66" stroke-width="10"/>
+        <g data-m="D"><rect x="-82" y="-55" width="164" height="110" rx="52" fill="#0A3D66" stroke-width="10"/><ellipse cx="0" cy="30" rx="40" ry="14" stroke="none" opacity=".7"/></g>
+        <ellipse data-m="E" cx="0" cy="0" rx="58" ry="50" fill="#0A3D66" stroke-width="10"/>
+        <ellipse data-m="F" cx="0" cy="0" rx="32" ry="36" fill="#0A3D66" stroke-width="10"/>
+        <g data-m="G"><rect x="-74" y="-18" width="148" height="36" rx="18" fill="#0A3D66" stroke-width="10"/><rect x="-44" y="-18" width="88" height="16" rx="5" stroke="none"/></g>
+        <g data-m="H"><rect x="-70" y="-38" width="140" height="76" rx="36" fill="#0A3D66" stroke-width="10"/><ellipse cx="0" cy="-16" rx="30" ry="12" stroke="none" opacity=".8"/></g>
+      </g>
+    </g>
+  </g>
+</svg>
+
+<div class="subs" id="subs"></div>
+
+<script>
+// render(t) dibuja el cuadro del segundo t. DATOS lo inyecta el script de captura.
+const $ = id => document.getElementById(id);
+const bocas = [...document.querySelectorAll('[data-m]')];
+let ultimoGrupo = -1;
+function forma(t) {
+  const c = DATOS.boca; let lo = 0, hi = c.length - 1;
+  while (lo < hi) { const m = (lo + hi + 1) >> 1; if (c[m].start <= t) lo = m; else hi = m - 1; }
+  return c[lo].value;
+}
+function parpadeo(t) {  // parpadeos cada 2,8–4,6 s, deterministas
+  let k = 0, s = 1.2;
+  while (s < t + 1) { const d = t - s; if (d >= 0 && d < 0.16) return Math.abs(d - 0.08) / 0.08; s += 2.8 + ((k * 7919) % 18) / 10; k++; }
+  return 1;
+}
+function render(t) {
+  const f = Math.min(DATOS.env.length - 1, Math.round(t * 30));
+  const e = DATOS.env[f], eS = DATOS.env.slice(Math.max(0, f - 6), f + 1).reduce((a, b) => a + b, 0) / 7;
+  // Fondo con paneo lento
+  const p = t / DATOS.dur;
+  $('fondo').style.transform = `translate(${-216 * p}px, ${-384 * (0.3 + 0.4 * p)}px)`;
+  // Cabeza: balanceo suave + asentimiento con la voz
+  const rot = Math.sin(t * 1.1) * 2.2 + Math.sin(t * 6.3) * eS * 2.5;
+  const dy = Math.sin(t * 1.9) * 6 - eS * 14;
+  $('cabeza').setAttribute('transform', `translate(0 ${dy}) rotate(${rot} 540 1080)`);
+  $('cuerpoG').setAttribute('transform', `translate(0 ${Math.sin(t * 1.9 - 0.6) * 4}) `);
+  // Antena y núcleo del pecho brillan con la voz
+  $('antena').setAttribute('r', 24 + e * 14); $('antena').setAttribute('fill', e > 0.35 ? '#7FDBFF' : '#3D9BFF');
+  $('nucleo').setAttribute('fill', `rgb(${Math.round(255 - e * 100)},${Math.round(255 - e * 40)},255)`);
+  // Ojos: parpadeo + miran un poco hacia los lados
+  const ab = parpadeo(t), mira = Math.sin(t * 0.7) * 10;
+  $('ojoI').setAttribute('transform', `translate(${450 + mira} 770) scale(1 ${Math.max(0.08, ab)})`);
+  $('ojoD').setAttribute('transform', `translate(${630 + mira} 770) scale(1 ${Math.max(0.08, ab)})`);
+  // Boca
+  const m = forma(t); bocas.forEach(b => b.style.display = b.dataset.m === m ? '' : 'none');
+  // Manos: flotan y gesticulan con la energía de la voz
+  const gi = Math.sin(t * 2.3) * 18 + eS * 70 * Math.sin(t * 3.1 + 1), gd = Math.sin(t * 2.0 + 2) * 18 + eS * 70 * Math.sin(t * 2.7);
+  $('manoI').setAttribute('transform', `translate(${215 - eS * 30} ${1290 - Math.max(0, gi)}) rotate(${-12 + gi * 0.3})`);
+  $('manoD').setAttribute('transform', `translate(${865 + eS * 30} ${1290 - Math.max(0, gd)}) rotate(${12 - gd * 0.3})`);
+  // Subtítulos: grupo actual y palabra activa
+  const G = DATOS.grupos; let gi2 = -1;
+  for (let i = 0; i < G.length; i++) { if (G[i][0][0] <= t + 0.05) gi2 = i; else break; }
+  const g = G[gi2];
+  const visible = g && t <= g[g.length - 1][1] + 0.6;
+  if (gi2 !== ultimoGrupo) { $('subs').innerHTML = g ? g.map(w => `<span>${w[2]}</span>`).join(' ') : ''; ultimoGrupo = gi2; }
+  $('subs').style.opacity = visible ? 1 : 0;
+  if (g) [...$('subs').children].forEach((s, i) => s.classList.toggle('on', t >= g[i][0] && (i === g.length - 1 ? t <= g[i][1] + 0.3 : t < g[i + 1][0])));
+}
+</script>
+</body>
+</html>

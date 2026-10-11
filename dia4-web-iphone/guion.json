@@ -1,0 +1,7 @@
+[
+  {"id": "intro", "frases": [["¡Día cuatro!", "gancho"], ["Tu web puede verse perfecta en tu computador…", "normal"], ["y tardar 10 segundos en un iPhone.", "remate"]]},
+  {"id": "diagnostico", "frases": [["Nos pasó.", "remate"], ["Medimos la carga en el celular real de los usuarios", "normal"], ["y encontramos al culpable: efectos visuales pesados.", "dato"]]},
+  {"id": "resultado", "frases": [["Los cambiamos.", "remate"], ["La respuesta bajó de 5,5 a 1,1 segundos,", "dato"], ["y las secciones, de 10,6 a 1,6.", "dato"]]},
+  {"id": "pruebas", "frases": [["Ahora cada cambio se prueba en Chrome y en Safari antes de publicarlo.", "normal"]]},
+  {"id": "cta", "frases": [["¿Quieres saber cuánto tarda tu web?", "pregunta"], ["Comenta WEB.", "gancho"]]}
+]

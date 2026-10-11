@@ -1,0 +1,7 @@
+[
+  {"id": "intro", "frases": [["¡Día dos automatizando procesos!", "gancho"], ["Hoy: inventario.", "remate"]]},
+  {"id": "problema", "frases": [["¿Cuántas veces vendiste algo… que ya no tenías?", "pregunta"], ["El cliente paga, tú buscas… y no está.", "normal"], ["Pues se acabó.", "remate"]]},
+  {"id": "nfc", "frases": [["Cada producto lleva una etiqueta NFC.", "normal"], ["Un toque con el celular… y la venta se descuenta del inventario al instante.", "dato"]]},
+  {"id": "web", "frases": [["Todo está conectado a la base de datos en tiempo real,", "normal"], ["así que tu tienda en línea muestra lo que de verdad hay.", "dato"]]},
+  {"id": "cta", "frases": [["Ya lo usamos en una tienda de calzado.", "normal"], ["¿Lo quieres en tu negocio? Comenta NFC.", "gancho"]]}
+]

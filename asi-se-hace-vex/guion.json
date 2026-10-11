@@ -1,0 +1,7 @@
+[
+  {"id": "intro", "frases": [["Yo no existo.", "gancho"], ["Bueno… no como tú crees.", "remate"]]},
+  {"id": "guion", "frases": [["Primero escribimos el guion.", "normal"], ["Luego una voz sintética lo lee… con entonación, frase por frase.", "normal"]]},
+  {"id": "boca", "frases": [["Un programa escucha el audio y mueve mi boca, sílaba por sílaba.", "dato"], ["¡Mira!", "remate"]]},
+  {"id": "animacion", "frases": [["Las animaciones se dibujan cuadro a cuadro,", "normal"], ["y los subtítulos salen palabra por palabra.", "normal"]]},
+  {"id": "cta", "frases": [["¿Quieres un presentador así para tu marca?", "pregunta"], ["Míralo este sábado.", "gancho"]]}
+]

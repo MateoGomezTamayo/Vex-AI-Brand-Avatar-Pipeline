@@ -1,0 +1,7 @@
+[
+  {"id": "intro", "frases": [["¡Día tres automatizando procesos!", "gancho"], ["Tus clientes escriben… esperan 30 minutos…", "normal"], ["y le compran a otro.", "remate"]]},
+  {"id": "analisis", "frases": [["Un cliente de e-commerce tenía ese problema.", "normal"], ["Analizamos los datos de su CRM y encontramos dónde se frenaban las respuestas.", "dato"]]},
+  {"id": "resultado", "frases": [["Automatizamos el flujo de mensajes.", "normal"], ["El tiempo de respuesta bajó de 30… a 5 minutos.", "dato"]]},
+  {"id": "volumen", "frases": [["Y eso mientras los mensajes crecían de 5.000… a 20.000.", "dato"]]},
+  {"id": "cta", "frases": [["¿Tu equipo no da abasto con los mensajes?", "pregunta"], ["Comenta BOT.", "gancho"]]}
+]

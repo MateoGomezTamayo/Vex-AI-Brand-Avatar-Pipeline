@@ -1,0 +1,6 @@
+[
+  {"id": "intro", "frases": [["¿Y si tu negocio respondiera a las once de la noche?", "pregunta"], ["Sin que tú estés despierto.", "remate"]]},
+  {"id": "basico", "frases": [["Hacemos dos tipos de asistente.", "normal"], ["El básico responde preguntas frecuentes, toma los datos y pasa a un asesor.", "normal"], ["Desde un millón doscientos mil pesos.", "dato"]]},
+  {"id": "ia", "frases": [["El asistente con inteligencia artificial se entrena con tus catálogos y documentos… y responde natural.", "normal"], ["Desde dos millones quinientos mil.", "dato"]]},
+  {"id": "cta", "frases": [["Cotiza en vextrumlabs.com:", "gancho"], ["en minutos recibes el plan y el precio.", "remate"]]}
+]

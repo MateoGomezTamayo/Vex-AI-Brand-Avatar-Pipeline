@@ -1,0 +1,14 @@
+# Generados por el pipeline
+tmp/
+*/video.html
+salida/
+musica/
+__pycache__/
+# Material interno que no forma parte del pipeline público
+procesos/
+servicio/
+servicio-en/
+muestras-voz/
+fondo_tech.py
+render_avatar.py
+transcribir.py
