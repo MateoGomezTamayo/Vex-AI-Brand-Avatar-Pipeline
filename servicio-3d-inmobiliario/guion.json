@@ -1,0 +1,8 @@
+[
+  {"id": "intro", "frases": [["¿Arriendas o vendes apartamentos?", "pregunta"], ["Soy Vex, el avatar de IA de Vextrum Labs, y te traigo un servicio nuevo.", "normal"]]},
+  {"id": "recorrido", "frases": [["Convertimos tus videos o planos en un recorrido 3D.", "normal"], ["El interesado camina el apartamento desde su celular, empezando por la puerta de entrada.", "normal"]]},
+  {"id": "maqueta", "frases": [["También lo ve desde arriba, con cada espacio y los acabados de las fotos.", "normal"]]},
+  {"id": "agenda", "frases": [["Y si le gusta, agenda la visita en la misma página, en los horarios que tú definas.", "dato"]]},
+  {"id": "caso", "frases": [["Ya está funcionando en un edificio de Laureles, en Medellín.", "dato"], ["Menos visitas perdidas y más clientes decididos.", "remate"]]},
+  {"id": "cta", "frases": [["Cotiza en vextrumlabs.com:", "gancho"], ["en minutos recibes el plan y el precio.", "remate"]]}
+]
