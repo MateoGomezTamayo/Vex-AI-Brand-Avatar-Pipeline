@@ -1,0 +1,10 @@
+[
+  {"id": "hook", "pausa": 0.35, "frases": [["¿Tu equipo no sabe qué hacer primero?", "pregunta"], ["Mira esto.", "remate"]]},
+  {"id": "intro", "pausa": 0.45, "frases": [["Soy Vex, el avatar de IA de Vextrum Labs, y te presento LetSprint.", "normal"]]},
+  {"id": "correo", "pausa": 0.45, "frases": [["Las tareas llegan por correo.", "normal"], ["La IA lee la fecha, el impacto y el esfuerzo.", "dato"]]},
+  {"id": "reglas", "pausa": 0.45, "frases": [["Unas reglas claras le dan un puntaje de cero a cien.", "dato"], ["Noventa y cuatro: es P1, se hace ya.", "remate"]]},
+  {"id": "tablero", "pausa": 0.45, "frases": [["Todo el equipo ve quién hace qué, en el tablero o en el calendario.", "normal"]]},
+  {"id": "vex", "pausa": 0.45, "frases": [["Y yo te organizo el día.", "gancho"], ["Reparto la carga y divido las tareas grandes, por chat o por voz.", "normal"]]},
+  {"id": "control", "pausa": 0.45, "frases": [["Pero tú decides: nada cambia sin tu sí.", "remate"]]},
+  {"id": "cta", "frases": [["¿Lo quieres para tu equipo?", "pregunta"], ["Escríbenos en vextrumlabs.com.", "remate"]]}
+]

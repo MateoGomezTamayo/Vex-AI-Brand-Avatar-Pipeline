@@ -37,7 +37,7 @@ async def generar(guion, tmp):
             pausa = prosodia(tono)[3]
             pista += [a, np.zeros(int(pausa * SR), np.int16)]; t += len(a) / SR + pausa
         secciones.append({'id': s['id'], 'start': round(inicio, 3), 'end': round(t, 3)})
-        extra = 1.4 if i == len(guion) - 1 else PAUSA_SECCION
+        extra = 1.4 if i == len(guion) - 1 else s.get('pausa', PAUSA_SECCION)  # una sección puede pedir menos pausa (videos más rápidos)
         pista.append(np.zeros(int(extra * SR), np.int16)); t += extra
     audio = np.concatenate(pista)
     with wave.open(str(tmp / 'voz.wav'), 'wb') as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(audio.tobytes())
