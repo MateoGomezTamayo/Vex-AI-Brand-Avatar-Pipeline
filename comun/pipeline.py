@@ -8,6 +8,7 @@ from voz_vex import voz, FF
 from rutas import RHUBARB
 MUSICA = pathlib.Path(__file__).parent.parent / 'musica' / 'fondo-vex.wav'  # se genera con musica.py; si no existe, el video va sin música
 VOL_MUSICA = 0.14
+VOL_PROPIA = 0.22
 
 def datos(carpeta, tmp):
     """Une voz.json + boca.json + energía del audio en datos.json (subtítulos con la puntuación del guion)."""
@@ -51,10 +52,12 @@ def render(html, tmp, salida, muestras=None):
             b.close(); return
         dur = json.loads(d)['dur']; total = round(dur * 30)
         audio = ['-i', str(tmp / 'voz.wav')]; mapa = ['-map', '1:a']
-        if MUSICA.exists():  # música bajita que se agacha cuando Vex habla (sidechain) y se desvanece al final
-            audio += ['-stream_loop', '-1', '-i', str(MUSICA)]
+        # Un video puede traer su propia música en tmp/musica.wav (hecha a su medida, más presente); si no, la música general
+        propia = tmp / 'musica.wav'; musica, vol = (propia, VOL_PROPIA) if propia.exists() else (MUSICA, VOL_MUSICA)
+        if musica.exists():  # música que se agacha cuando Vex habla (sidechain) y se desvanece al final
+            audio += ['-stream_loop', '-1', '-i', str(musica)]
             filtro = (f'[1:a]aformat=sample_rates=44100:channel_layouts=stereo,asplit[v1][v2];'
-                      f'[2:a]volume={VOL_MUSICA},afade=t=out:st={max(0, dur - 2):.2f}:d=2[m];'
+                      f'[2:a]volume={vol},afade=t=out:st={max(0, dur - 2):.2f}:d=2[m];'
                       f'[m][v1]sidechaincompress=threshold=0.02:ratio=6:attack=30:release=500[md];'
                       f'[v2][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]')
             audio += ['-filter_complex', filtro]; mapa = ['-map', '[a]']
