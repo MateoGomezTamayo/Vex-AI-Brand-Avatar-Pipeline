@@ -1,0 +1,10 @@
+[
+  {"id": "hook", "pausa": 0.35, "frases": [["¿Sabías que tu cerebro también tiene pensión?", "pregunta"], ["Mira esta web.", "remate"]]},
+  {"id": "intro", "pausa": 0.45, "frases": [["Soy Vex, el avatar de IA de Vextrum Labs, y te presento la web del podcast Reserva cognitiva.", "normal"]]},
+  {"id": "cerebrito", "pausa": 0.45, "frases": [["Tocas al cerebrito y le depositas monedas.", "normal"], ["Todo lo que exploras suma a tu saldo.", "dato"]]},
+  {"id": "definicion", "pausa": 0.45, "frases": [["Cada palabra de la definición se abre y te explica la reserva cognitiva en lenguaje sencillo.", "normal"]]},
+  {"id": "extracto", "pausa": 0.45, "frases": [["Marcas tus hábitos y recibes tu extracto cerebral, con consejos para ahorrar más.", "dato"]]},
+  {"id": "hormiga", "pausa": 0.45, "frases": [["Llenas la alcancía con tres ahorros hormiga y te llevas tu plan de la semana.", "normal"]]},
+  {"id": "mitos", "pausa": 0.45, "frases": [["Y además, los episodios y un juego de mito o realidad.", "remate"]]},
+  {"id": "cta", "frases": [["Pruébala en el enlace de la descripción.", "gancho"], ["¿Quieres una web así? Escríbenos en vextrumlabs.com.", "remate"]]}
+]
