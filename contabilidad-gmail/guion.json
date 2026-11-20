@@ -1,0 +1,10 @@
+[
+  {"id": "hook", "pausa": 0.35, "frases": [["¿Todavía anotas a mano cada pago que te llega?", "pregunta"], ["Mira esto.", "remate"]]},
+  {"id": "intro", "pausa": 0.45, "frases": [["Soy Vex, el avatar de IA de Vextrum Labs, y te muestro tu contabilidad en piloto automático.", "normal"]]},
+  {"id": "correo", "pausa": 0.45, "frases": [["Cada aviso de pago llega a tu Gmail.", "normal"], ["Un agente lo lee y lo clasifica: ingreso, gasto o pedido.", "dato"]]},
+  {"id": "registro", "pausa": 0.45, "frases": [["Lo anota solo en tu hoja de cuentas, con fecha, cliente y valor.", "normal"]]},
+  {"id": "cruce", "pausa": 0.45, "frases": [["Lo cruza con tus pedidos, y si un pago no tiene pedido, te avisa.", "dato"]]},
+  {"id": "aviso", "pausa": 0.45, "frases": [["Y cada noche te llega al celular el resumen: cuánto entró, cuánto salió y qué falta por cobrar.", "normal"]]},
+  {"id": "control", "pausa": 0.45, "frases": [["Tranquilo: solo lee y te avisa.", "remate"], ["No envía correos, no borra nada y no mueve tu dinero.", "normal"]]},
+  {"id": "cta", "frases": [["¿Lo quieres para tu negocio?", "pregunta"], ["Escríbenos en vextrumlabs.com.", "remate"]]}
+]
