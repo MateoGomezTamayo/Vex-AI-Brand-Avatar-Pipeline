@@ -53,6 +53,15 @@ CSS = '''.esc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920
 .chip { position: absolute; left: 70px; background: rgba(0,123,255,.22); border: 3px solid rgba(61,155,255,.75); color: #fff; font-weight: 800; font-size: 36px; border-radius: 999px; padding: 16px 30px; white-space: nowrap; opacity: 0; }
 .chip.no { background: rgba(220,38,38,.18); border-color: rgba(252,165,165,.8); }
 .logo { font-weight: 800; font-size: 120px; letter-spacing: -4px; }
+.dedo { position: absolute; width: 96px; height: 96px; border-radius: 50%; border: 7px solid #fff; background: rgba(61,155,255,.35); box-shadow: 0 10px 30px rgba(0,0,0,.5); opacity: 0; z-index: 30; }
+.cnt { margin-left: auto; background: #DC2626; color: #fff; font-size: 26px; font-weight: 800; border-radius: 999px; padding: 4px 16px; min-width: 50px; text-align: center; }
+.total { display: grid; grid-template-columns: 1fr 230px; background: #0B1B2E; color: #fff; font-weight: 800; font-size: 32px; }
+.total span { padding: 20px 22px; } .total span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.ok { position: absolute; width: 74px; height: 74px; border-radius: 50%; background: #34D399; color: #0B1B2E; font-weight: 900; font-size: 46px; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(52,211,153,.6); opacity: 0; }
+.barras { display: flex; align-items: flex-end; gap: 18px; height: 110px; margin-top: 12px; padding: 0 6px; }
+.barras i { flex: 1; border-radius: 10px 10px 4px 4px; height: 0; }
+.barras small { display: block; text-align: center; font-size: 20px; color: #4A5B70; font-weight: 700; margin-top: 6px; }
+.candado { position: absolute; left: 110px; top: 1000px; font-size: 150px; opacity: 0; }
 .logo b { color: #3D9BFF; font-weight: 800; }'''
 
 PAPELES = [('$85.000', 90, 640, -8), ('Transferencia', 600, 600, 6), ('Nequi $40.000', 60, 900, 5), ('Factura #318', 640, 880, -5),
@@ -79,13 +88,14 @@ HTML = f'''
   <div class="slam logo" id="lg" style="top:330px">Contabilidad<br>en <b>piloto</b><br><b>automático</b></div>
 </div>
 <div class="esc" id="c-correo">
-  <div class="inbox" id="ib"><div class="hd"><i></i>Recibidos</div>{MSGS}<div class="scan" id="sc"></div></div>
+  <div class="inbox" id="ib"><div class="hd"><i></i>Recibidos<span class="cnt" id="ibc">0</span></div>{MSGS}<div class="scan" id="sc"></div></div>
   <div class="ej" style="left:70px;top:1010px">DATOS DE EJEMPLO</div>
+  <div class="dedo" id="dd"></div>
 </div>
 <div class="esc" id="c-registro">
   <div class="hoja" id="hj"><div class="tt"><span>Cuentas · noviembre</span><span>Google Sheets</span></div>
-    <div class="fila cab"><span>Fecha</span><span>Concepto</span><span>Tipo</span><span>Valor</span></div>{FIL}</div>
-  <div class="ej" style="left:70px;top:830px">DATOS DE EJEMPLO</div>
+    <div class="fila cab"><span>Fecha</span><span>Concepto</span><span>Tipo</span><span>Valor</span></div>{FIL}<div class="total"><span>Saldo del día</span><span id="tot">$0</span></div></div>
+  <div class="ej" style="left:70px;top:900px">DATOS DE EJEMPLO</div>
 </div>
 <div class="esc" id="c-cruce">
   <div class="col" style="left:70px"><div class="k">PAGOS</div>
@@ -95,6 +105,7 @@ HTML = f'''
     <div class="blo" id="pe0">#1042<small>$350.000 · Ana R.</small></div>
     <div class="blo" id="pe1" style="background:#FEE2E2;color:#DC2626">?<small style="color:#DC2626">sin pedido</small></div></div>
   <div class="lin" id="ln0" style="left:490px;top:395px;width:100px"></div>
+  <div class="ok" id="ok0" style="left:503px;top:362px">✓</div>
   <div class="alerta" id="al">⚠ Pago de $85.000 sin pedido</div>
 </div>
 <div class="esc" id="c-aviso">
@@ -102,7 +113,8 @@ HTML = f'''
     <div class="noti" id="nt"><div class="ap">VEXTRUM · CUENTAS</div><div class="t">Resumen de hoy</div>
       <div class="r"><span>Entró</span><b class="verde" id="n0">$0</b></div>
       <div class="r"><span>Salió</span><b class="rojo" id="n1">$0</b></div>
-      <div class="r"><span>Por cobrar</span><b id="n2">0 pedidos</b></div></div>
+      <div class="r"><span>Por cobrar</span><b id="n2">0 pedidos</b></div>
+      <div class="barras"><div style="flex:1"><i id="b0" style="background:#047857;display:block"></i><small>Entró</small></div><div style="flex:1"><i id="b1" style="background:#DC2626;display:block"></i><small>Salió</small></div></div></div>
   </div></div>
   <div class="ej" style="left:480px;top:1285px">DATOS DE EJEMPLO</div>
 </div>
@@ -111,6 +123,7 @@ HTML = f'''
   <div class="chip no" id="k0" style="top:620px">✕ No envía correos</div>
   <div class="chip no" id="k1" style="top:740px">✕ No borra nada</div>
   <div class="chip no" id="k2" style="top:860px">✕ No mueve tu dinero</div>
+  <div class="candado" id="lk">🔒</div>
 </div>
 <div class="cta" id="cta"><div class="btn">Tu contabilidad, en automático</div><p>vextrumlabs.com</p></div>
 <div id="flash"></div>
@@ -127,13 +140,15 @@ const POS = { hook: [1.0, 0, -20], intro: [0.8, 0, 220], correo: [0.42, 330, 360
 function vexLugar(t) {
   let i = 0; while (i < SEC.length - 1 && t >= SEC[i + 1].start - 0.45) i++;
   const a = POS[SEC[Math.max(0, i - 1)].id], b = POS[SEC[i].id], k = i ? back((t - (SEC[i].start - 0.45)) / 0.6) : 1;
-  const salto = i ? Math.sin(cl((t - (SEC[i].start - 0.45)) / 0.6) * Math.PI) * 70 : 0;
+  let salto = i ? Math.sin(cl((t - (SEC[i].start - 0.45)) / 0.6) * Math.PI) * 70 : 0;
+  (window.BRINCOS || []).forEach(h => { if (t >= h && t < h + 0.45) salto += Math.sin((t - h) / 0.45 * Math.PI) * 55; });
   const s = a[0] + (b[0] - a[0]) * k, x = a[1] + (b[1] - a[1]) * k, y = a[2] + (b[2] - a[2]) * k - salto;
   $('vex').setAttribute('transform', `translate(${540 + x} ${950 + y}) scale(${s}) translate(-540 -950)`);
 }
 let GOLPES = null;
 function animar(t) {
   if (!GOLPES) GOLPES = { cortes: SEC.slice(1).map(s => s.start - 0.06), fuertes: [kw('intro', 'piloto'), kw('cruce', 'avisa'), kw('control', 'solo')] };
+  if (!window.BRINCOS) window.BRINCOS = [kw('correo', 'clasifica'), kw('cruce', 'avisa'), kw('aviso', 'celular'), kw('control', 'solo'), kw('cta', 'escribenos')];
   vexLugar(t);
   let fl = 0, z = 0, sx = 0, sy = 0;
   GOLPES.cortes.forEach(h => { if (t >= h) { const e = Math.exp(-(t - h) * 13); fl = Math.max(fl, 0.55 * e); z += 0.035 * Math.exp(-(t - h) * 8); } });
@@ -165,16 +180,31 @@ function animar(t) {
   const lee = kw('correo', 'lee'); $('sc').style.opacity = t > lee && t < lee + 1.3 ? 1 : 0; $('sc').style.top = (60 + cl((t - lee) / 1.3) * 480) + 'px';
   const tipo = { 0: 'ingreso', 1: 'ingreso', 2: 'pedido', 3: 'gasto' };
   [0, 1, 2, 3].forEach(i => pop($('e' + i), kw('correo', tipo[i]) + i * 0.08, t, '', 0.35));
+  $('ibc').textContent = [0, 1, 2, 3].filter(i => t >= c0 + 0.2 + i * 0.32).length;
+  const taps = [0, 1, 2, 3].map(i => kw('correo', tipo[i]) + i * 0.08);
+  let k = -1; taps.forEach((h, i) => { if (t >= h - 0.25) k = i; });
+  const dd = $('dd');
+  if (k >= 0 && t < taps[3] + 0.8) {
+    const ib = $('ib').getBoundingClientRect(), row = $('m' + k).getBoundingClientRect(), f = cl((t - taps[k] + 0.25) / 0.25);
+    dd.style.left = (row.right - 140) + 'px'; dd.style.top = (row.top + row.height / 2 - 48) + 'px';
+    dd.style.opacity = 0.9; dd.style.transform = `scale(${1.25 - 0.45 * Math.sin(f * Math.PI)})`;
+  } else dd.style.opacity = 0;
 
   // 4. Registro: la hoja entra y cada fila se escribe sola
   const r0 = sec('registro').start, hj = cl((t - r0 + 0.2) / 0.5);
   $('hj').style.transform = `translateX(${(1 - back(hj)) * -700}px) rotate(${(1 - hj) * -6}deg)`;
   const fe = kw('registro', 'fecha'), cli = kw('registro', 'cliente'), va = kw('registro', 'valor');
-  [fe, cli, va].forEach((k, i) => { const f = $('r' + i); f.style.opacity = cl((t - k) / 0.15); f.style.background = t > k && t < k + 0.6 ? '#DCFCE7' : '#fff'; f.style.transform = `translateY(${(1 - cl((t - k) / 0.3)) * -20}px)`; });
+  const VAL = [350000, 85000, -1200000]; let tot = 0;
+  [fe, cli, va].forEach((k, i) => { const f = $('r' + i), w = cl((t - k) / 0.55); f.style.opacity = t >= k ? 1 : 0; f.style.clipPath = `inset(0 ${(1 - w) * 100}% 0 0)`; f.style.background = t > k && t < k + 0.9 ? '#DCFCE7' : '#fff'; tot += VAL[i] * cl((t - k - 0.3) / 0.5); });
+  $('tot').textContent = (tot < 0 ? '−' : '') + pesos(Math.abs(tot)); $('tot').style.color = tot < 0 ? '#FCA5A5' : '#6EE7B7';
 
   // 5. Cruce: pago y pedido se unen con una línea; el pago sin pedido dispara la alerta
   const x0 = sec('cruce').start;
   pop($('pa0'), x0 + 0.1, t); pop($('pa1'), x0 + 0.35, t); pop($('pe0'), kw('cruce', 'pedidos'), t);
+  const une = kw('cruce', 'pedidos') + 0.25, u = Math.sin(cl((t - une) / 0.7) * Math.PI);
+  $('pa0').style.transform += ` translateX(${u * 60}px)`; $('pe0').style.transform += ` translateX(${-u * 60}px)`;
+  pop($('ok0'), une + 0.45, t, '', 0.4);
+  const sacude = kw('cruce', 'avisa'); if (t > sacude) $('pa1').style.transform += ` translateX(${Math.sin((t - sacude) * 40) * 14 * Math.exp(-(t - sacude) * 4)}px)`;
   $('ln0').style.transform = `scaleX(${cl((t - kw('cruce', 'pedidos') - 0.25) / 0.35)})`;
   const sin = kw('cruce', 'pago'); pop($('pe1'), sin, t);
   pop($('al'), kw('cruce', 'avisa'), t, `rotate(${Math.sin(Math.max(0, t - kw('cruce', 'avisa')) * 18) * 3 * Math.exp(-(t - kw('cruce', 'avisa')) * 3)}deg)`);
@@ -183,13 +213,17 @@ function animar(t) {
   const a0 = sec('aviso').start, ph = cl((t - a0 + 0.2) / 0.55);
   $('ph').style.transform = `translateY(${(1 - back(ph)) * 500}px)`;
   const nt = kw('aviso', 'celular'); $('nt').style.opacity = cl((t - nt) / 0.2); $('nt').style.transform = `translateY(${(1 - back(cl((t - nt) / 0.45))) * -160}px)`;
+  const vib = t > nt && t < nt + 0.7 ? Math.sin((t - nt) * 90) * 3.5 : 0;
+  $('ph').style.transform += ` rotate(${vib}deg)`;
   const en = kw('aviso', 'entro'), sa = kw('aviso', 'salio'), co = kw('aviso', 'cobrar');
   $('n0').textContent = pesos(435000 * cl((t - en) / 0.6)); $('n1').textContent = pesos(1200000 * cl((t - sa) / 0.6));
   $('n2').textContent = (t >= co ? 1 : 0) + ' pedido' + (t >= co ? '' : 's');
+  $('b0').style.height = (cl((t - en) / 0.6) * 0.27 * 100) + 'px'; $('b1').style.height = (cl((t - sa) / 0.6) * 100) + 'px';
 
   // 7. Control: "SOLO LEE Y AVISA" cae de golpe; las tres garantías aparecen al nombrarlas
   pop($('sl'), kw('control', 'solo'), t);
   pop($('k0'), kw('control', 'envia'), t, 'rotate(-2deg)'); pop($('k1'), kw('control', 'borra'), t, 'rotate(2deg)'); pop($('k2'), kw('control', 'mueve'), t, 'rotate(-1deg)');
+  pop($('lk'), kw('control', 'dinero') + 0.25, t, '', 0.4);
 
   // 8. Cierre
   const tc = kw('cta', 'escribenos'); $('cta').style.opacity = ease((t - tc) / 0.4); $('cta').style.transform = `scale(${0.8 + 0.2 * back((t - tc) / 0.45)})`;
