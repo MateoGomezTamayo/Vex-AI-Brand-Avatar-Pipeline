@@ -1,0 +1,12 @@
+[
+  {"id": "hook", "pausa": 0.35, "frases": [["¿Quieres aprender a analizar datos, pero nunca has programado?", "pregunta"], ["Mira esto.", "remate"]]},
+  {"id": "intro", "pausa": 0.4, "frases": [["Soy Vex, el avatar de IA de Vextrum Labs.", "normal"]]},
+  {"id": "mateo", "pausa": 0.45, "frases": [["Mateo creó este contenido como asistencia para el curso, de parte de Vextrum Labs.", "normal"]]},
+  {"id": "curso", "pausa": 0.4, "frases": [["Se llama Datos con IA: seis lecciones gratis, en español, paso a paso en Jupyter.", "normal"]]},
+  {"id": "ejecuta", "pausa": 0.4, "frases": [["Tocas Ejecutar y el código corre en tu navegador, sin instalar nada.", "dato"]]},
+  {"id": "palabras", "pausa": 0.4, "frases": [["¿Una palabra que no entiendes? La tocas y te explica qué significa.", "normal"]]},
+  {"id": "vex", "pausa": 0.4, "frases": [["Y si te atascas, me preguntas a mí: veo tu código y tu error, y te explico sin enredos.", "normal"]]},
+  {"id": "quiz", "pausa": 0.4, "frases": [["Al final de cada lección, un quiz rápido para saber si lo tienes claro.", "normal"]]},
+  {"id": "whatsapp", "pausa": 0.4, "frases": [["¿Quieres aplicarlo a los datos de tu negocio?", "pregunta"], ["Te asesoramos por WhatsApp.", "remate"]]},
+  {"id": "cta", "frases": [["Entra gratis desde vextrumlabs.com.", "remate"]]}
+]
